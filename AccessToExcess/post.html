@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Meal - Access to Excess</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1 style="margin:0;">
+        <img src="images/Access to Excess logo.png" alt="Access To Excess Logo" class="logo-img" />
+      </h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="post.html" class="active">Post Meal</a>
+      <a href="claim.html">Claim Meal</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </header>
+
+  <div class="hero post-hero">
+    <h2>Share Your Excess Food</h2>
+    <p>Help reduce food waste by sharing meals with those in need</p>
+  </div>
+
+  <main>
+    <div class="content-wrapper post-content">
+      <section class="form-section">
+        <h2>Post a Meal</h2>
+        <form class="meal-form">
+          <div class="form-group">
+            <label for="meal-name">Meal Name</label>
+            <input type="text" id="meal-name" name="meal-name" required placeholder="Enter the name of the meal">
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required placeholder="Describe the meal and any special ingredients"></textarea>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="quantity">Quantity (Servings)</label>
+              <input type="number" id="quantity" name="quantity" required min="1">
+            </div>
+
+            <!-- <div class="form-group">
+              <label for="pickup-time">Pickup Time</label>
+              <input type="time" id="pickup-time" name="pickup-time" required>
+            </div> -->
+          </div>
+
+          <div class="form-group">
+            <label>Dietary Restrictions</label>
+            <div class="checkbox-grid">
+              <label class="checkbox-label">
+                <input type="checkbox" name="diet" value="Vegan">
+                <span class="checkbox-text">Vegan</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="diet" value="Vegetarian">
+                <span class="checkbox-text">Vegetarian</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="diet" value="Gluten-Free">
+                <span class="checkbox-text">Gluten-Free</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="diet" value="Halal">
+                <span class="checkbox-text">Halal</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="diet" value="Kosher">
+                <span class="checkbox-text">Kosher</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="diet" value="Dairy-Free">
+                <span class="checkbox-text">Dairy-Free</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Pickup Location</label>
+            <input type="text" id="location" name="location" required placeholder="Enter the pickup address">
+          </div>
+
+          <div class="form-group">
+            <label for="meal-image">Meal Image</label>
+            <input type="file" id="meal-image" name="meal-image" accept="image/*">
+          </div>
+
+          <button type="submit" class="submit-btn">Post Meal</button>
+        </form>
+      </section>
+
+      <aside class="info-section">
+        <div class="info-card">
+          <h3>Guidelines for Posting</h3>
+          <ul>
+            <li>Ensure food is properly packaged</li>
+            <li>Include all allergen information</li>
+            <li>Set reasonable pickup times</li>
+            <li>Provide accurate location details</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Access to Excess Connect</p>
+    <nav class="footer-nav">
+      <a href="about.html">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </nav>
+  </footer>
+</body>
+</html>

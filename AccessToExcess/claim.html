@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claim Meal - Access to Excess</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .content-wrapper.claim-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .meal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(340px, 1fr));
+      gap: 2.5rem;
+      justify-content: center;
+    }
+    .meal-card {
+      min-width: 320px;
+      max-width: 420px;
+      min-height: 420px;
+      font-size: 1.13rem;
+    }
+    .meal-image {
+      min-height: 180px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 16px 16px 0 0;
+    }
+    /* Claim page specific styles */
+    .top-controls { max-width: 1200px; margin: 1.5rem auto; padding: 0 1rem; }
+    .controls { display:flex; gap:1rem; align-items:center; }
+    .search-hero { flex:1; }
+    .diet-filters {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .diet-btn {
+      padding: 0.3rem 0.9rem;
+      font-size: 0.95rem;
+      border: 1px solid #2980b9;
+      background: #fff;
+      color: #2980b9;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      outline: none;
+    }
+    .diet-btn.active, .diet-btn:focus {
+      background: #2980b9;
+      color: #fff;
+    }
+    @media (max-width:768px){ .controls{flex-direction:column; align-items:stretch;} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1 style="margin:0;">
+        <img src="images/Access to Excess logo.png" alt="Access To Excess Logo" class="logo-img" />
+      </h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="post.html">Post Meal</a>
+      <a href="claim.html" class="active">Claim Meal</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </header>
+
+  <div class="hero claim-hero">
+    <h2>Find Your Next Meal</h2>
+    <p>Search, filter and claim fresh meals in your area</p>
+  </div>
+
+  <main>
+    <div class="top-controls">
+      <div class="controls">
+        <div class="search-hero">
+          <input id="search-input" class="search-input" type="search" placeholder="Search meals, restaurants, or locations..." autofocus>
+        </div>
+        <div class="diet-filters" id="diet-filters">
+          <button type="button" class="diet-btn active" data-diet="all">All</button>
+          <button type="button" class="diet-btn" data-diet="vegan">Vegan</button>
+          <button type="button" class="diet-btn" data-diet="vegetarian">Vegetarian</button>
+          <button type="button" class="diet-btn" data-diet="gluten-free">Gluten-Free</button>
+          <button type="button" class="diet-btn" data-diet="halal">Halal</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-wrapper claim-content">
+      <div class="meal-grid" id="meal-grid">
+        <div class="meal-card" data-diet="low-carb">
+          <div class="meal-image" style="background-image:url('images/chicken-salad.jpg')" title="Chicken Salad"></div>
+          <h3>Chicken Salad</h3>
+          <p class="muted">Fresh Bites • Low-Carb</p>
+          <p class="muted">Pickup: 123 Main St</p>
+          <div class="meal-actions"><button class="claim-btn">Claim Meal</button></div>
+        </div>
+        <!-- static demo cards - dynamic posts will be appended below -->
+        <div class="meal-card" data-diet="vegan">
+          <div class="meal-image" style="background-image:url('images/vegan-pasta.jpg')" title="Vegan Pasta"></div>
+          <h3>Vegan Pasta</h3>
+          <p class="muted">Green Eats • Vegan</p>
+          <p class="muted">Pickup: 8900 J M Keynes Dr</p>
+          <div class="meal-actions"><button class="claim-btn">Claim Meal</button></div>
+        </div>
+
+        <div class="meal-card" data-diet="gluten-free">
+         <div class="meal-image" style="background-image:url('images/gluten-free-sandwich.jpg')" title="Gluten-Free Sandwich"></div>
+          <h3>Gluten-Free Sandwich</h3>
+          <p class="muted">Healthy Bites • Gluten-Free</p>
+          <p class="muted">Pickup: 8010 Concord Mills Blvd</p>
+          <div class="meal-actions"><button class="claim-btn">Claim Meal</button></div>
+        </div>
+
+        <div class="meal-card" data-diet="vegetarian">
+          <div class="meal-image" style="background-image:url('images/chicken-salad.jpg')" title="Chicken Salad"></div>
+          <h3>Vegetarian Burrito</h3>
+          <p class="muted">Taco Time • Vegetarian</p>
+          <p class="muted">Pickup: 456 Elm St</p>
+          <div class="meal-actions"><button class="claim-btn">Claim Meal</button></div>
+        </div>
+
+        <div class="meal-card" data-diet="halal">
+         <div class="meal-image" style="background-image:url('images/halal-chicken-biryani.png')"></div>
+          <h3>Halal Chicken Biryani</h3>
+          <p class="muted">Spice House • Halal</p>
+          <p class="muted">Pickup: 1234 Market St</p>
+          <div class="meal-actions"><button class="claim-btn">Claim Meal</button></div>
+        </div>
+
+        <div class="meal-card" data-diet="vegan">
+          <div class="meal-image" style="background-image:url('images/vegan-burrito.jpg')" title="Vegan Buddha Bowl"></div>
+          <h3>Vegan Buddha Bowl</h3>
+          <p class="muted">Fresh Roots • Vegan</p>
+          <p class="muted">Pickup: 789 Healthy Way</p>
+          <div class="meal-actions"><button class="claim-btn">Claim Meal</button></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Access to Excess Connect</p>
+    <nav class="footer-nav">
+      <a href="about.html">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Load saved meals from localStorage and render as cards
+    function loadSavedMeals(){
+      const stored = localStorage.getItem('ate_meals');
+      if(!stored) return;
+      try{
+        const arr = JSON.parse(stored);
+        const grid = document.getElementById('meal-grid');
+        arr.forEach(m => {
+          const card = document.createElement('div');
+          card.className = 'meal-card';
+          card.dataset.diet = m.diet || '';
+          card.innerHTML = `\n            <div class="meal-image" style="background-image:url('${m.image || 'https://source.unsplash.com/800x600/?meal'}')"></div>\n            <h3>${m.name}</h3>\n            <p class="muted">${m.restaurant ? m.restaurant + ' • ' : ''}${m.diet || ''}</p>\n            <p class="muted">Pickup: ${m.location || ''}</p>\n            <div class="meal-actions"><button class="claim-btn">Claim Meal</button></div>`;
+          grid.appendChild(card);
+        });
+      }catch(e){ console.error('Failed to load stored meals', e); }
+    }
+
+    // Diet Filter Buttons + Search
+    document.addEventListener('DOMContentLoaded', function(){
+      const dietBtns = Array.from(document.querySelectorAll('.diet-btn'));
+      const searchInput = document.getElementById('search-input');
+
+      function applyFilters(){
+        const q = (searchInput.value||'').toLowerCase().trim();
+        const active = dietBtns.find(t=>t.classList.contains('active'))?.dataset.diet || 'all';
+        document.querySelectorAll('.meal-card').forEach(card=>{
+          const title = (card.querySelector('h3')?.innerText||'').toLowerCase();
+          const meta = (card.querySelector('.muted')?.innerText||'').toLowerCase();
+          const diet = (card.dataset.diet||'').toLowerCase();
+          const matchesQuery = q === '' || title.includes(q) || meta.includes(q);
+          const matchesDiet = active === 'all' || diet === active || meta.includes(active);
+          card.style.display = (matchesQuery && matchesDiet) ? '' : 'none';
+        });
+      }
+
+      dietBtns.forEach(btn=> btn.addEventListener('click', ()=>{
+        dietBtns.forEach(x=>x.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilters();
+      }));
+      searchInput.addEventListener('input', applyFilters);
+
+      loadSavedMeals();
+    });
+  </script>
+</body>
+</html>
